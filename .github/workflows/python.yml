@@ -1,13 +1,19 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+# 此工作流将安装 Python 依赖项、运行测试并使用单一版本的 Python 执行 lint
+# 更多信息参见：https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
 name: Python application
 
 on:
   push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+    branches:
+      - main
+  schedule:
+    - cron: '0 21,4 * * *' #北京时间5点30打卡，和12点半
+  workflow_dispatch:
+  watch:
+    types: started
+  repository_dispatch:
+    types: node
 
 jobs:
   build:
