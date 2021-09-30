@@ -43,3 +43,7 @@ jobs:
       run: |
         python test.py
         ls
+        with：
+        commit_message : Apply automatic changes
+        
+    
