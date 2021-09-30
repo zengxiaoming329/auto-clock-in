@@ -32,7 +32,6 @@ jobs:
         pip install flake8
         pip install datetime
         pip install pytz
-        pip install 
         pip install playwright==1.14.1
         python -m playwright install chromium
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
