@@ -8,7 +8,7 @@ from log import save_log
 
 
 def run(playwright: Playwright):
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch(headless=True)
 
     #创建一个实例并伪造地理位置
     context = browser.new_context(geolocation={"longitude": 113.8697, "latitude": 22.9054},permissions=["geolocation"])
