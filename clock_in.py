@@ -135,8 +135,8 @@ if __name__ == '__main__':
     password = os.getenv('PASSWORD')
     message = os.getenv('NAME')
     recipient = os.getenv('EMAIL')
-    if     username != '' and password != ''\
-    and message != '' and recipient != '':
+    if username == '' or password == '' \
+            or message == '' or recipient == '':
         save_log('没有设置环境变量！')
     else:
 
