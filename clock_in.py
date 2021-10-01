@@ -20,7 +20,7 @@ def run(playwright: Playwright):
         page.goto("https://yqfk.dgut.edu.cn/main",timeout=60000)
 
         # Go to https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home
-        page.goto("https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home")
+        page.goto("https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home"，timeout=60000)
 
         # Click [placeholder="请输入中央认证账号"]
         page.click("[placeholder=\"请输入中央认证账号\"]")
@@ -40,6 +40,7 @@ def run(playwright: Playwright):
             page.click("#loginBtn")
 
         #获取关键信息
+        page.wait_for_timeout(60000)
         remind1 = page.query_selector_all('.remind___fRE9P')
         message1 = remind1[0].text_content()
         message2 = remind1[1].text_content()
