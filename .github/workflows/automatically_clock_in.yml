@@ -42,8 +42,13 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: auto_clock_in
+      env:
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        NAME: ${{ secrets.NAME }}
+        EMAIL: ${{ secrets.EMAIL }}
       run: |
-        python clock_in.py
+        python clock_in.py "${USERNAME}" "${PASSWORD}" "${NAME}" "${EMAIL}"
         dir
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
