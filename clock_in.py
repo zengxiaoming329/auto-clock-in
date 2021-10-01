@@ -133,7 +133,7 @@ def clock_in():
 if __name__ == '__main__':
     #传入账号、密码、关键信息、
     if len(sys.argv) != 5:
-        print('请输入4个参数！')
+        save_log('输入的参数数目不对！')
     else:
         username=sys.argv[1]
         password=sys.argv[2]
