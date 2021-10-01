@@ -15,3 +15,8 @@ navigating to "https://yqfk.dgut.edu.cn/main", waiting until "load"
 navigating to "https://yqfk.dgut.edu.cn/main", waiting until "load"
 ============================================================1
 2021-10-01_11-32-00邮件发送成功打卡异常！
+2021-10-01_11-43-35Timeout 30ms exceeded.
+=========================== logs ===========================
+navigating to "https://yqfk.dgut.edu.cn/main", waiting until "load"
+============================================================1
+2021-10-01_11-43-43邮件发送成功打卡异常！
