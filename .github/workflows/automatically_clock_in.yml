@@ -48,7 +48,7 @@ jobs:
         NAME: ${{ secrets.NAME }}
         EMAIL: ${{ secrets.EMAIL }}
       run: |
-        python clock_in.py ${USERNAME} ${PASSWORD} ${NAME} ${EMAIL}
+        python clock_in.py $USERNAME $PASSWORD $NAME $EMAIL
         dir
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
