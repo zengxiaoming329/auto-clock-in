@@ -1,4 +1,4 @@
 import os
 
 g = os.getenv('USERNAME')
-print(g)
+print(g[2])
