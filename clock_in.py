@@ -130,6 +130,8 @@ def clock_in():
         f.write(date+' '+str(state))
 
 if __name__ == '__main__':
+    date = datetime.datetime.now(pytz.timezone('PRC')).strftime("%Y-%m-%d_%H-%M-%S")
+    save_log(date+'程序启动！')
     #从环境变量中获取账号、密码、关键信息、邮箱
     username = os.getenv('USERNAME')
     password = os.getenv('PASSWORD')
