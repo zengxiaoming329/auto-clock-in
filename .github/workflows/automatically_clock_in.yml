@@ -34,7 +34,7 @@ jobs:
         pip install pytz
         pip install playwright==1.14.1
         python -m playwright install chromium
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
