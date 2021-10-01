@@ -20,7 +20,7 @@ def run(playwright: Playwright):
         page.goto("https://yqfk.dgut.edu.cn/main",timeout=60000)
 
         # Go to https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home
-        page.goto("https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home"，timeout=60000)
+        page.goto("https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home",timeout=60000)
 
         # Click [placeholder="请输入中央认证账号"]
         page.click("[placeholder=\"请输入中央认证账号\"]")
