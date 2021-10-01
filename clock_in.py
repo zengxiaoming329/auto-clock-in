@@ -17,7 +17,7 @@ def run(playwright: Playwright):
     page = context.new_page()
     try:
         # Go to https://yqfk.dgut.edu.cn/main
-        page.goto("https://yqfk.dgut.edu.cn/main",timeout=30)
+        page.goto("https://yqfk.dgut.edu.cn/main",timeout=30000)
 
         # Go to https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home
         page.goto("https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home")
