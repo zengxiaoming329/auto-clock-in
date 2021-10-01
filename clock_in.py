@@ -11,7 +11,7 @@ def run(playwright: Playwright):
     browser = playwright.chromium.launch(headless=True)
 
     #创建一个实例并伪造地理位置
-    context = browser.new_context(geolocation={"longitude": 113.8697, "latitude": 22.9054},locale='zh_CN',timezone_id='Asia/Beijing',permissions=["geolocation"])
+    context = browser.new_context(geolocation={"longitude": 113.8697, "latitude": 22.9054},locale='zh_CN',timezone_id='Asia/Shanghai',permissions=["geolocation"])
 
     # Open new page
     page = context.new_page()
