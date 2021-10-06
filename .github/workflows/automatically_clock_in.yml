@@ -8,7 +8,7 @@ on:
 #     branches:
 #       - main
   schedule:
-    - cron: '5 * * * *' #每个小时的15分钟启动工作流， minute (0 - 59) hour (0 - 23) day of the month (1 - 31) month (1 - 12 or JAN-DEC)day of the week (0 - 6 or SUN-SAT)
+    - cron: '10 * * * *' #每个小时的15分钟启动工作流， minute (0 - 59) hour (0 - 23) day of the month (1 - 31) month (1 - 12 or JAN-DEC)day of the week (0 - 6 or SUN-SAT)
   workflow_dispatch:
 #   watch:
 #     types: started
