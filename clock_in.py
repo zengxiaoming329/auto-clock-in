@@ -153,7 +153,7 @@ if __name__ == '__main__':
             now_time=time.strptime(date,"%Y-%m-%d_%H-%M-%S")
             # m[1]==True or False
             if m[1]=='True':
-                if now_time[3]==1 or now_time[3]==13:
+                if now_time[3]==2 or now_time[3]==13:
                     clock_in()
             else:
                 clock_in()
