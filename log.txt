@@ -1247,3 +1247,6 @@ navigating to "https://yqfk.dgut.edu.cn/main", waiting until "load"
 navigating to "https://yqfk.dgut.edu.cn/main", waiting until "load"
 ============================================================1
 2021-11-17_04-17-19邮件发送成功打卡异常！
+2021-11-17_05-13-39程序启动！
+2021-11-17_05-14-59打卡成功！
+2021-11-17_05-15-02邮件发送成功打卡成功！
