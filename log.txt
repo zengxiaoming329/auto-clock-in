@@ -1235,3 +1235,9 @@ navigating to "https://yqfk.dgut.edu.cn/main", waiting until "load"
 navigating to "https://yqfk.dgut.edu.cn/main", waiting until "load"
 ============================================================1
 2021-11-17_02-17-13邮件发送成功打卡异常！
+2021-11-17_03-12-41程序启动！
+2021-11-17_03-13-07net::ERR_CONNECTION_TIMED_OUT at https://yqfk.dgut.edu.cn/main
+=========================== logs ===========================
+navigating to "https://yqfk.dgut.edu.cn/main", waiting until "load"
+============================================================1
+2021-11-17_03-13-09邮件发送成功打卡异常！
