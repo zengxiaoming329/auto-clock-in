@@ -14,19 +14,21 @@ recipient=''#收件人
 
 def run(playwright: Playwright):
     browser = playwright.chromium.launch(headless=True)
-
-    #创建一个实例并伪造地理位置
-    context = browser.new_context(geolocation={"longitude": 113.8697, "latitude": 22.9054},permissions=["geolocation"],locale='zh_CN',timezone_id='Asia/Shanghai')
-
+    iphone=playwright.devices['iPhone 12 Pro']
+    #创建一个实例并伪造地理位置跟时区
+    context = browser.new_context(**iphone,geolocation={"longitude": 113.880063, "latitude": 22.914918},permissions=["geolocation"],locale='zh_CN',timezone_id='Asia/Shanghai')
     # Open new page
     page = context.new_page()
     try:
-        # Go to https://yqfk.dgut.edu.cn/main
-        page.goto("https://yqfk.dgut.edu.cn/main",timeout=60000)
 
-        # Go to https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home
-        page.goto("https://cas.dgut.edu.cn/home/Oauth/getToken/appid/illnessProtectionHome/state/home",timeout=60000)
+        # Go to https://yqfk-daka.dgut.edu.cn/
+        page.goto("https://yqfk-daka.dgut.edu.cn/",timeout=60000)
 
+        # Go to https://yqfk-daka.dgut.edu.cn/login/dgut
+        page.goto("https://yqfk-daka.dgut.edu.cn/login/dgut",timeout=60000)
+
+        # Go to https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/%2Fhome.html
+        page.goto("https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/%2Fhome.html",timeout=60000)
         # Click [placeholder="请输入中央认证账号"]
         page.click("[placeholder=\"请输入中央认证账号\"]")
 
@@ -40,43 +42,48 @@ def run(playwright: Playwright):
         page.fill("[placeholder=\"请输入中央认证密码\"]", password)
 
         # Click #loginBtn
-        # with page.expect_navigation(url="https://yqfk.dgut.edu.cn/main"):
         with page.expect_navigation():
             page.click("#loginBtn")
 
-        #获取关键信息
-        page.wait_for_timeout(60000)
-        remind1 = page.query_selector_all('.remind___fRE9P')
-        message1 = remind1[0].text_content()
-        message2 = remind1[1].text_content()
+
+        # page.wait_for_timeout(60000)
+        # 等待关键信息的出现
+        page.wait_for_selector("text=居民身份证",timeout=60000)
+
+        # 获取关键信息
+        remind1 = page.query_selector_all('.van-grid-item')
+        message1 = remind1[0].text_content().strip()
+        # message2 = remind1[1].text_content()
 
         #根据关键信息判断打卡状态
-        if '已连续打卡' in message1 or '提交成功' in message2:
+        if '已连续打卡' in message1 or '已打卡' in message1:
             save_log(message1)
             send_email.send_email(recipient,"打卡成功！", message1)
             return True
         elif '未打卡' in message1:
 
             #等待关键信息的出现
-            page.wait_for_selector("text=%s"%message)
+            page.wait_for_selector("text=居民身份证", timeout=60000)
 
             # submit_button=page.query_selector ('.am-button')
             #点击提交按钮
-            page.click('.am-button')
+            # Click button:has-text("提交")
+            page.click("button:has-text(\"提交\")")
+            
 
             #重新加载
             page.reload()
 
             # 等待关键信息的出现
-            page.wait_for_selector("text=%s"%message)
+            page.wait_for_selector("text=居民身份证", timeout=60000)
 
             #获取关键信息
-            remind2=page.query_selector_all('.remind___fRE9P')
-            message3 = remind2[0].text_content()
-            message4 = remind2[1].text_content()
+            remind2=page.query_selector_all('.van-grid-item')
+            message3 = remind2[0].text_content().strip()
+            # message4 = remind2[1].text_content()
 
             #判断打卡状态
-            if '已连续打卡' in message3 or '未打卡' not in message3 or '提交成功' in message4:
+            if '已连续打卡' in message3 or '未打卡' not in message3 or '已打卡' in message3:
                 #写入日志
                 save_log("打卡成功！")
                 #发送邮件
@@ -153,7 +160,7 @@ if __name__ == '__main__':
             now_time=time.strptime(date,"%Y-%m-%d_%H-%M-%S")
             # m[1]==True or False
             if m[1]=='True':
-                if now_time[3]==2 or now_time[3]==13:
+                if now_time[3]==0 or now_time[3]==13:
                     clock_in()
             else:
                 clock_in()
