@@ -16,7 +16,10 @@ def run(playwright: Playwright):
     browser = playwright.chromium.launch(headless=True)
     iphone=playwright.devices['iPhone 12 Pro']
     #创建一个实例并伪造地理位置跟时区
-    context = browser.new_context(**iphone,geolocation={"longitude": 113.880063, "latitude": 22.914918},permissions=["geolocation"],locale='zh_CN',timezone_id='Asia/Shanghai')
+    #定位到学校
+    #context = browser.new_context(**iphone,geolocation={"longitude": 113.880063, "latitude": 22.914918},permissions=["geolocation"],locale='zh_CN',timezone_id='Asia/Shanghai')
+    #定位到家里
+    context = browser.new_context(**iphone,geolocation={"longitude": 110.85338, "latitude": 21.91812},permissions=["geolocation"],locale='zh_CN',timezone_id='Asia/Shanghai')
     # Open new page
     page = context.new_page()
     try:
