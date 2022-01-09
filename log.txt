@@ -2766,3 +2766,9 @@ waiting for navigation until 'load'
 navigating to "https://yqfk-daka.dgut.edu.cn/", waiting until "load"
 ============================================================1
 2022-01-09_13-22-20邮件发送成功打卡异常！
+2022-01-09_14-26-37程序启动！
+2022-01-09_14-27-40Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://yqfk-daka.dgut.edu.cn/", waiting until "load"
+============================================================1
+2022-01-09_14-28-07邮件发送成功打卡异常！
