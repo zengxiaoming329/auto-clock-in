@@ -4046,3 +4046,5 @@ navigating to "https://yqfk-daka.dgut.edu.cn/", waiting until "load"
 navigating to "https://yqfk-daka.dgut.edu.cn/", waiting until "load"
 ============================================================1
 2022-02-22_06-21-59邮件发送成功打卡异常！
+2022-02-22_07-21-06程序启动！
+2022-02-22_07-21-31邮件发送成功打卡失败！
