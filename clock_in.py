@@ -19,7 +19,7 @@ def run(playwright: Playwright):
     #定位到学校
     #context = browser.new_context(**iphone,geolocation={"longitude": 113.880063, "latitude": 22.914918},permissions=["geolocation"],locale='zh_CN',timezone_id='Asia/Shanghai')
     #定位到家里
-    context = browser.new_context(**iphone,geolocation={"longitude": 110.85338, "latitude": 21.91812},permissions=["geolocation"],locale='zh_CN',timezone_id='Asia/Shanghai')
+    context = browser.new_context(**iphone,geolocation={"longitude": 113.813492, "latitude": 22.985336},permissions=["geolocation"],locale='zh_CN',timezone_id='Asia/Shanghai')
     # Open new page
     page = context.new_page()
     try:
@@ -67,18 +67,27 @@ def run(playwright: Playwright):
 
             #等待关键信息的出现
             page.wait_for_selector("text=居民身份证", timeout=60000)
+            page.wait_for_selector("text=学生用户", timeout=60000)
+            page.wait_for_selector("text=良好", timeout=60000)
+            page.wait_for_selector("text=否", timeout=60000)
+            
+            #获取当前时间
+            date0 = datetime.datetime.now(pytz.timezone('PRC')).strftime("%Y-%m-%d_%H-%M-%S")
 
             # submit_button=page.query_selector ('.am-button')
             #点击提交按钮
             # Click button:has-text("提交")
             page.click("button:has-text(\"提交\")")
-            
+            page.screenshot(path='./screenshot/' + date0 + '.png')
 
             #重新加载
             page.reload()
 
             # 等待关键信息的出现
             page.wait_for_selector("text=居民身份证", timeout=60000)
+            page.wait_for_selector("text=学生用户", timeout=60000)
+            page.wait_for_selector("text=良好", timeout=60000)
+            page.wait_for_selector("text=否", timeout=60000)
 
             #获取关键信息
             remind2=page.query_selector_all('.van-grid-item')
@@ -90,24 +99,24 @@ def run(playwright: Playwright):
                 #写入日志
                 save_log("打卡成功！")
                 #发送邮件
-                send_email.send_email(recipient,"打卡成功！","打卡成功！")
+                send_email.send_email(recipient,"打卡成功！","数据提交成功！")
                 return True
             elif '未打卡' in message3:
                 #写入日志
                 #save_log("打卡失败！")
-                send_email.send_email(recipient,"打卡失败！","打卡失败！")
+                send_email.send_email(recipient,"打卡失败！","无法正常提交数据！",'./screenshot/' + date0+ '.png')
             else:
                 #获取当前时间
                 date = datetime.datetime.now(pytz.timezone('PRC')).strftime("%Y-%m-%d_%H-%M-%S")
                 #异常情况截图并保存
                 page.screenshot(path='./screenshot/' + date + '.png')
-                send_email.send_email(recipient,"打卡失败！","打卡失败！",'./screenshot/' + date+ '.png')
+                send_email.send_email(recipient,"打卡失败！","提交数据出错！",'./screenshot/' + date+ '.png')
                 return False
         else:
             #异常截图
             date=datetime.datetime.now(pytz.timezone('PRC')).strftime("%Y-%m-%d_%H-%M-%S")
             page.screenshot(path='./screenshot/' + date + '.png')
-            send_email.send_email(recipient,"打卡失败！", "打卡异常！", './screenshot/' + date + '.png')
+            send_email.send_email(recipient,"打卡失败！", "未知异常！", './screenshot/' + date + '.png')
             return False
 
     except Exception as e:
@@ -157,14 +166,14 @@ if __name__ == '__main__':
             with open('time_log.txt', 'r', encoding='utf-8') as f:
                 line = f.readline()
             #分割字符
-            m=line.split(' ')
+            m=line.分屏(' ')
             #解析时间
             last_time=time.strptime(m[0],"%Y-%m-%d_%H-%M-%S")
             date = datetime.datetime.now(pytz.timezone('PRC')).strftime("%Y-%m-%d_%H-%M-%S")
             now_time=time.strptime(date,"%Y-%m-%d_%H-%M-%S")
             # m[1]==True or False
             if m[1]=='True':
-                if now_time[3]==0 or now_time[3]==13:
+                if now_time[3]==1 or now_time[3]==13:
                     clock_in()
             else:
                 clock_in()
