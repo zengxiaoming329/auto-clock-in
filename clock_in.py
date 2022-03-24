@@ -166,7 +166,7 @@ if __name__ == '__main__':
             with open('time_log.txt', 'r', encoding='utf-8') as f:
                 line = f.readline()
             #分割字符
-            m=line.分屏(' ')
+            m=line.split(' ')
             #解析时间
             last_time=time.strptime(m[0],"%Y-%m-%d_%H-%M-%S")
             date = datetime.datetime.now(pytz.timezone('PRC')).strftime("%Y-%m-%d_%H-%M-%S")
