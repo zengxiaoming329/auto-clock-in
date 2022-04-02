@@ -201,3 +201,9 @@
 2022-04-02_21-35-50程序启动！
 2022-04-02_22-29-11程序启动！
 2022-04-02_23-36-21程序启动！
+2022-04-03_00-57-33程序启动！
+2022-04-03_00-58-13net::ERR_CONNECTION_TIMED_OUT at https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/%2Fhome.html
+=========================== logs ===========================
+navigating to "https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/%2Fhome.html", waiting until "load"
+============================================================1
+2022-04-03_00-58-15邮件发送成功打卡异常！
