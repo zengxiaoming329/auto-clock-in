@@ -293,3 +293,4 @@ navigating to "https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/
 2022-04-06_14-48-41程序启动！
 2022-04-06_14-49-03打卡成功！
 2022-04-06_14-49-05邮件发送成功数据提交成功！
+2022-04-06_15-31-22程序启动！
