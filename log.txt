@@ -369,3 +369,9 @@ navigating to "https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/
 2022-04-09_10-56-44程序启动！
 2022-04-09_11-28-57程序启动！
 2022-04-09_12-32-49程序启动！
+2022-04-09_13-26-36程序启动！
+2022-04-09_13-28-14Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/%2Fhome.html", waiting until "load"
+============================================================1
+2022-04-09_13-28-43邮件发送成功打卡异常！
