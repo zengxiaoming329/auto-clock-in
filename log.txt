@@ -375,3 +375,6 @@ navigating to "https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/
 navigating to "https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/%2Fhome.html", waiting until "load"
 ============================================================1
 2022-04-09_13-28-43邮件发送成功打卡异常！
+2022-04-09_14-25-09程序启动！
+2022-04-09_14-25-39您今天已打卡成功！已连续打卡580天！
+2022-04-09_14-25-43邮件发送成功您今天已打卡成功！已连续打卡580天！
