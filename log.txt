@@ -1370,3 +1370,10 @@ navigating to "https://cas.dgut.edu.cn/home/Oauth/getToken/appid/yqfkdaka/state/
 2022-05-16_21-45-01程序启动！
 2022-05-16_22-21-51程序启动！
 2022-05-16_23-26-40程序启动！
+2022-05-17_00-35-32程序启动！
+2022-05-17_00-36-35Timeout 30000ms exceeded.
+=========================== logs ===========================
+waiting for navigation until "load"
+  navigated to "https://yqfk-daka.dgut.edu.cn/"
+============================================================1
+2022-05-17_00-36-40邮件发送成功打卡异常！
